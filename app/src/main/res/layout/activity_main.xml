@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:seekarc="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mixxmann.mixxmannsmartremote.MainActivity">
+
+    <FrameLayout
+        android:id="@+id/listframe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/textInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginTop="20dp"
+            android:text="@string/select_a_device_to_connect"
+            android:textColor="@color/purple_700"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/nonfoundmessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="90dp"
+            android:text="No MIXXMANN device found.\nTry 'FIND NEW' button"
+            android:textSize="18sp" />
+
+
+        <ListView
+            android:id="@+id/deviceList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginBottom="90dp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/buttonsl"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:onClick="snonClick"
+            android:padding="10dp"
+            android:text="@string/search_new"
+            android:textSize="20sp" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/mainframe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        tools:visibility="visible">
+
+        <Button
+            android:id="@+id/buttonconnect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_margin="40dp"
+            android:onClick="bbonClick"
+            android:text="@string/connect"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:contentDescription="@string/s3"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/s3s8" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/workframe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:text="CONNECTED TO:"
+            android:textColor="@color/purple_700"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/textViewremotedevice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:gravity="center_horizontal"
+            android:text="remote device name"
+            android:textSize="20sp" />
+
+        <belka.us.androidtoggleswitch.widgets.ToggleSwitch
+            android:id="@+id/mtogleSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="40dp"
+            android:textSize="50sp"
+            custom:activeBgColor="@color/pgreen"
+            custom:cornerRadius="20dp"
+            custom:textToggleLeft="ON"
+            custom:textToggleRight="OFF"
+            custom:toggleWidth="150dp" />
+
+        <TextView
+            android:id="@+id/telemetryin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Telemetry"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/telemetryout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text=" OUT Telemetry: NaN"
+            android:textColor="@color/pgreen"
+            android:textSize="20sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/seekArcProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="MIN"
+                android:textColor="@color/pgreen"
+                android:textSize="100sp" />
+
+            <com.triggertrap.seekarc.SeekArc
+                android:id="@+id/seekArc"
+                android:layout_width="match_parent"
+                android:layout_height="426dp"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="20dp"
+                android:padding="30dp"
+                seekarc:arcWidth="8dp"
+                seekarc:progressColor="@color/purple_700"
+                seekarc:progressWidth="10dp"
+                seekarc:rotation="180"
+                seekarc:startAngle="30"
+                seekarc:sweepAngle="300"
+                seekarc:touchInside="true" />
+
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
